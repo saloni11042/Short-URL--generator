@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+    <h1 class="main-heading"><%= heading %></h1>
+    
+    <div class="main-form">
+        <form method="POST" action="/url">
+            <label for="url">Enter actual URL</label>
+            <input type="text" id="url" name="actualUrl" placeholder="https://example.com">
+            <button type="submit">Generate ShortID</button>
+        </form>
+    </div>
+
+    <div class="main-table">
+        <table border="1">
+            <thead>
+                <th>S.No.</th>
+                <th>Actual URL</th>
+                <th>ShortID</th>
+                <th>Total Visits</th>
+            </thead>
+            <tbody>
+                <% allUrls.forEach((url,index) => {%>
+                    <tr>
+                    <td><%= index+1 %></td>
+                    <td><%=url.actualUrl%></td>
+                    <td><%=url.shortId%></td>
+                    <td><%=url.visitedHistory.length%></td>
+                </tr>
+               <% })%>
+            </tbody>
+        </table>
+    </div>
+
+
+   
+
+    
+</body>
+</html>

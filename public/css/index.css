@@ -1,0 +1,19 @@
+
+body{
+    width: 100vw;
+}
+.main-heading{
+    text-align: center;
+    color: blueviolet;
+}
+.main-form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.main-table{
+    padding-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
