@@ -3,6 +3,7 @@ const path = require('path')
 const mongoose = require("mongoose");
 const connectMongoDb = require('./connection')
 const urlRouter = require('./routes/url')
+const userRouter = require('./routes/user')
 const URL = require('./models/url')
 const app = express();
 
@@ -17,6 +18,7 @@ connectMongoDb("mongodb://localhost:27017/url-shortner")
 .then(()=>console.log("Mongodb Connected"));
 
 app.use('/url',urlRouter)
+app.use('/user',userRouter)
 
 app.get('/test',async (req,res)=>{
     const allUrls = await URL.find({})
