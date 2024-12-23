@@ -9,14 +9,15 @@ async function handleGenerateNewShortUrl(req,res){
     // }
     console.log(req.body)
     const shortId = shortid();
-
+    console.log(req)
     await Url.create({
         shortId:shortId,
         actualUrl: body.actualUrl,
         visitedHistory:[],
+        createdBy:req.user._id
     })
 
-    const allUrls = await Url.find({})
+    const allUrls = await Url.find({createdBy:req.user._id})
     console.log(allUrls)
     return res.render("home",{
         id:shortId,

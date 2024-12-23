@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
+    <link rel="stylesheet" href="../css/signup.css">
 </head>
 <body>
-    <form method="POST" action="/user">
-        <label for="name">Name: </label>
-        <input type="text" id="name" name="name" placeholder="Enter your Name">
-        <label for="email">Email: </label>
-        <input type="email" id="email" name="email" placeholder="Enter your Email">
-        <label for="password">Password: </label>
-        <input type="password" name="password" id="password" placeholder="Password">
-        <button type="submit">Sign Up</button>
-    </form>
+    <div class="auth-container">
+        <form method="POST" action="/user">
+            <h2>Sign Up</h2>
+
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" placeholder="Enter your Name" required>
+
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" placeholder="Enter your Password" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <div class="form-footer">
+            <p>Already have an account? <a href="/user/signin">Sign In here</a></p>
+        </div>
+    </div>
 </body>
 </html>
