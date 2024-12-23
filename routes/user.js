@@ -1,5 +1,5 @@
 const express = require('express');
-const { handleCreateUser,handleSignUp,handleSignIn,handleSignOut}=require('../controlles/user')
+const { handleCreateUser,handleSignUp,handleSignIn, handleSignOut}=require('../controlles/user')
 
 const router = express.Router();
 

@@ -4,7 +4,7 @@ const listSchema  = new mongoose.Schema({
     token:{
         type:String,
         required: true,
-        ref:"user"
+        // ref:"user"
     },
 },{timestamps:true})
 

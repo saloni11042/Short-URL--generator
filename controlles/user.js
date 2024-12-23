@@ -30,21 +30,21 @@ async function handleSignUp(req,res){
 
 async function handleSignIn(req,res){
     const body = req.body;
-    console.log(body)
+    // console.log(body)
     const email = body.email;
     const password = body.password;
-    console.log(email)
-    console.log(password)
+    // console.log(email)
+    // console.log(password)
 
     const user =  await User.findOne({email,password})
-    console.log(user)
+    // console.log(user)
     if(!user){
         return res.render("signin",{error:"Invalid email or password"})
     }
     // const userId = uuidv4()
     const token = setUserId(user)
     res.cookie("uuid",token)
-    console.log(token)
+    // console.log(token)
         return res.redirect("/test")
    
     
@@ -63,19 +63,8 @@ async function handleSignOut(req,res){
         token:accessToken,
     })
     await newTokenList.save();
-    res.end();
+    return res.end();
 }
-async function Verify(req,res,next){
-    const authHeader = req.headers['cookie']
-    console.log(authHeader)
-    const cookie = authHeader.split(';')[1]
-    console.log(cookie)
-    const accessToken = cookie.split('=')[1]
-    console.log(accessToken)
-    const checkIfListed = await List.findOne({token:accessToken})
-    if(checkIfListed){
-        return res.json({message:"Please login again"})
-    }
-}
+
 
 module.exports = {handleCreateUser,handleSignUp,handleSignIn,handleSignOut}
