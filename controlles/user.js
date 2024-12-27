@@ -30,7 +30,7 @@ async function handleSignUp(req,res){
 
 async function handleSignIn(req,res){
     const body = req.body;
-    // console.log(body)
+    console.log(body)
     const email = body.email;
     const password = body.password;
     // console.log(email)
@@ -43,7 +43,7 @@ async function handleSignIn(req,res){
     }
     // const userId = uuidv4()
     const token = setUserId(user)
-    res.cookie("uuid",token)
+    res.cookie("token",token)
     // console.log(token)
         return res.redirect("/test")
    

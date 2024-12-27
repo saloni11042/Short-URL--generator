@@ -5,7 +5,12 @@ const secret = "secretKey"
 
 function setUserId(user){
     // uniqueIdUserMap.set(id,user)
-    return jwt.sign({user},secret)
+    return jwt.sign({
+        _id:user._id,
+    email:user.email,
+    name:user.name,
+role:user.role
+},secret)
 }
 
 function getUserId(token){
